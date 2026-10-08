@@ -20,7 +20,14 @@ type EmailSender = {
 
 type WorkerEnv = {
   EMAIL?: EmailSender;
+  CONTACT_RECIPIENT?: string;
 };
+
+function getWorkerEnv(env: unknown): WorkerEnv {
+  return (env ??
+    (globalThis as typeof globalThis & { __env__?: WorkerEnv }).__env__ ??
+    {}) as WorkerEnv;
+}
 
 let serverEntryPromise: Promise<ServerEntry> | undefined;
 
@@ -63,7 +70,7 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       if (new URL(request.url).pathname === "/api/contact") {
-        return await handleContactRequest(request, env as WorkerEnv);
+        return await handleContactRequest(request, getWorkerEnv(env));
       }
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
@@ -84,7 +91,9 @@ async function handleContactRequest(request: Request, env: WorkerEnv): Promise<R
   const origin = request.headers.get("origin");
   if (origin && origin !== new URL(request.url).origin)
     return json({ error: "Invalid request origin." }, 403);
-  if (!env.EMAIL) return json({ error: "Email delivery is not configured yet." }, 503);
+  if (!env.EMAIL || !env.CONTACT_RECIPIENT) {
+    return json({ error: "Email delivery is not configured yet." }, 503);
+  }
 
   let body: unknown;
   try {
@@ -126,7 +135,7 @@ async function handleContactRequest(request: Request, env: WorkerEnv): Promise<R
 
   try {
     await env.EMAIL.send({
-      to: "founder@artechzo.tech",
+      to: env.CONTACT_RECIPIENT,
       from: "website@artechzo.tech",
       replyTo: email,
       subject: `New ${service} inquiry from ${name}`,

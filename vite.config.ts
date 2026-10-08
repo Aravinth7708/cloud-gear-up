@@ -17,6 +17,7 @@ export default defineConfig({
     cloudflare: {
       wrangler: {
         account_id: "c4938e5e778ef26dacad7b4306c76bdc",
+        keep_vars: true,
         workers_dev: true,
         routes: [{ pattern: "artechzo.tech", custom_domain: true }],
         send_email: [{ name: "EMAIL", allowed_sender_addresses: ["website@artechzo.tech"] }],
