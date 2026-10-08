@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://artechzo.com/sitemap.xml
+Sitemap: https://artechzo.tech/sitemap.xml

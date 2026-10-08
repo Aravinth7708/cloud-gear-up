@@ -16,7 +16,8 @@ import {
 
 export const company = {
   name: "ARTECHZO",
-  domain: "https://artechzo.com",
+  domain: "https://artechzo.tech",
+  email: "founder@artechzo.tech",
   tagline: "Engineering Software. Automating Intelligence. Scaling the Cloud.",
   shortTagline: "From ambitious ideas to production-ready technology.",
 };
@@ -36,16 +37,47 @@ export const homeHeadlinePhrases = [
 ] as const;
 
 export const deliveryFocus = [
-  { number: "01", title: "A clearer product foundation", text: "We translate your requirements into user journeys, application architecture, and connected data flows. The starting point is your business problem—not a predetermined technology stack.", items: ["Requirements and scope", "Application and data architecture", "Integration planning"] },
-  { number: "02", title: "Software that fits your workflow", text: "From customer-facing applications to internal tools and AI-assisted processes, we connect the interfaces, systems, and information your team depends on.", items: ["Full-stack implementation", "API and system integrations", "Workflow automation"] },
-  { number: "03", title: "A considered path to deployment", text: "Testing, deployment configuration, and technical monitoring are part of the delivery conversation. You own the cloud accounts and hardware; we handle the engineering and configuration.", items: ["Functional and integration testing", "Client-owned infrastructure", "Monitoring and ongoing improvement"] },
+  {
+    number: "01",
+    title: "A clearer product foundation",
+    text: "We translate your requirements into user journeys, application architecture, and connected data flows. The starting point is your business problem—not a predetermined technology stack.",
+    items: ["Requirements and scope", "Application and data architecture", "Integration planning"],
+  },
+  {
+    number: "02",
+    title: "Software that fits your workflow",
+    text: "From customer-facing applications to internal tools and AI-assisted processes, we connect the interfaces, systems, and information your team depends on.",
+    items: ["Full-stack implementation", "API and system integrations", "Workflow automation"],
+  },
+  {
+    number: "03",
+    title: "A considered path to deployment",
+    text: "Testing, deployment configuration, and technical monitoring are part of the delivery conversation. You own the cloud accounts and hardware; we handle the engineering and configuration.",
+    items: [
+      "Functional and integration testing",
+      "Client-owned infrastructure",
+      "Monitoring and ongoing improvement",
+    ],
+  },
 ] as const;
 
 export const homeFaqs = [
-  { question: "Can you help with an existing application?", answer: "Yes. Our software engineering capabilities include application maintenance, integrations, and optimization. We begin by understanding your existing system, its constraints, and the improvements you need." },
-  { question: "Where does AI automation fit into a project?", answer: "We focus on repeatable information and workflow tasks, such as document processing, authorized web data extraction, and connecting business applications. The workflow and access requirements determine where an AI-assisted approach is appropriate." },
+  {
+    question: "Can you help with an existing application?",
+    answer:
+      "Yes. Our software engineering capabilities include application maintenance, integrations, and optimization. We begin by understanding your existing system, its constraints, and the improvements you need.",
+  },
+  {
+    question: "Where does AI automation fit into a project?",
+    answer:
+      "We focus on repeatable information and workflow tasks, such as document processing, authorized web data extraction, and connecting business applications. The workflow and access requirements determine where an AI-assisted approach is appropriate.",
+  },
   { question: "Do you supply servers or cloud accounts?", answer: cloudOwnershipAnswer() },
-  { question: "What should we share to start a conversation?", answer: "Tell us about the problem, who will use the solution, your current tools, and any timing or budget constraints. If you already have requirements or an existing application, include that context in your project description." },
+  {
+    question: "What should we share to start a conversation?",
+    answer:
+      "Tell us about the problem, who will use the solution, your current tools, and any timing or budget constraints. If you already have requirements or an existing application, include that context in your project description.",
+  },
 ] as const;
 
 function cloudOwnershipAnswer() {
@@ -134,8 +166,8 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    slug: "icmt-conference-126",
-    name: "ICMT Conference 126",
+    slug: "ICMBNT-conference-2026",
+    name: "ICMBNT Conference 2026",
     category: "Conference Management Platform",
     description:
       "A purpose-built digital platform supporting conference-related workflows, information management, and structured digital experiences.",
@@ -143,8 +175,17 @@ export const products: Product[] = [
       "Conference information and internal workflows can become fragmented across disconnected pages, files, and communication channels.",
     solution:
       "A coherent digital environment designed to organize event information and support clearly structured conference management experiences.",
-    functionalAreas: ["Event information", "Conference overview", "Structured management panels", "Content organization"],
-    useCases: ["Conference information hubs", "Event operations teams", "Organized attendee information"],
+    functionalAreas: [
+      "Event information",
+      "Conference overview",
+      "Structured management panels",
+      "Content organization",
+    ],
+    useCases: [
+      "Conference information hubs",
+      "Event operations teams",
+      "Organized attendee information",
+    ],
     icon: AppWindow,
     flow: ["Event data", "Content layer", "Conference interface", "Managed information"],
   },
@@ -158,7 +199,12 @@ export const products: Product[] = [
       "Garment businesses need clear visibility across products, categories, inventory, and day-to-day operational information.",
     solution:
       "A focused management environment that brings clothing inventory and operational workflows into one structured interface.",
-    functionalAreas: ["Clothing inventory", "Product categorization", "Stock organization", "Operational dashboards"],
+    functionalAreas: [
+      "Clothing inventory",
+      "Product categorization",
+      "Stock organization",
+      "Operational dashboards",
+    ],
     useCases: ["Garment inventory teams", "Textile operations", "Internal product organization"],
     icon: Shirt,
     flow: ["Product records", "Categories", "Inventory view", "Operational insight"],
@@ -173,18 +219,43 @@ export const products: Product[] = [
       "Useful public information is often spread across many institution websites in inconsistent formats that are difficult to process repeatedly.",
     solution:
       "An agentic workflow that navigates authorized sources, extracts relevant fields, structures records, and organizes repeatable datasets.",
-    functionalAreas: ["Automated navigation", "Authorized public data extraction", "Structured processing", "Repeatable workflows"],
-    useCases: ["Education research", "Public information discovery", "Structured dataset preparation"],
+    functionalAreas: [
+      "Automated navigation",
+      "Authorized public data extraction",
+      "Structured processing",
+      "Repeatable workflows",
+    ],
+    useCases: [
+      "Education research",
+      "Public information discovery",
+      "Structured dataset preparation",
+    ],
     icon: PackageSearch,
     flow: ["Website sources", "Browser agent", "Data extraction", "Structured records", "Database"],
   },
 ];
 
 export const principles = [
-  { title: "Engineering First", text: "Maintainable architecture, technical clarity, and reliable implementation.", icon: Layers3 },
-  { title: "Built Around Your Business", text: "Solutions shaped around real operational needs, not generic templates.", icon: Boxes },
-  { title: "Development to Deployment", text: "Application engineering, intelligent automation, and infrastructure delivery connected.", icon: Workflow },
-  { title: "Designed to Scale", text: "Decisions made for reliability, extensibility, and long-term evolution.", icon: Network },
+  {
+    title: "Engineering First",
+    text: "Maintainable architecture, technical clarity, and reliable implementation.",
+    icon: Layers3,
+  },
+  {
+    title: "Built Around Your Business",
+    text: "Solutions shaped around real operational needs, not generic templates.",
+    icon: Boxes,
+  },
+  {
+    title: "Development to Deployment",
+    text: "Application engineering, intelligent automation, and infrastructure delivery connected.",
+    icon: Workflow,
+  },
+  {
+    title: "Designed to Scale",
+    text: "Decisions made for reliability, extensibility, and long-term evolution.",
+    icon: Network,
+  },
 ];
 
 export const processSteps = [
@@ -199,23 +270,48 @@ export const technologyGroups = [
   { label: "Frontend", items: ["React", "TypeScript", "Next.js", "Tailwind CSS"], icon: CodeXml },
   { label: "Backend", items: ["Node.js", "Go", "Python", "REST APIs"], icon: Layers3 },
   { label: "Data", items: ["PostgreSQL", "MongoDB", "Redis"], icon: Database },
-  { label: "AI & Automation", items: ["LLM integrations", "AI agents", "Browser automation", "Data extraction"], icon: Sparkles },
-  { label: "Cloud & DevOps", items: ["AWS", "Azure", "Google Cloud", "Docker", "Linux", "CI/CD"], icon: CloudCog },
+  {
+    label: "AI & Automation",
+    items: ["LLM integrations", "AI agents", "Browser automation", "Data extraction"],
+    icon: Sparkles,
+  },
+  {
+    label: "Cloud & DevOps",
+    items: ["AWS", "Azure", "Google Cloud", "Docker", "Linux", "CI/CD"],
+    icon: CloudCog,
+  },
 ];
 
 export const founders = [
   {
-    initials: "RG",
-    name: "Ram Gibi",
+    initials: "RB",
+    name: "Ramji B",
     role: "Co-Founder & Full-Stack Developer",
-    description: "Focused on modern web applications, dependable backend systems, and efficient software solutions.",
-    expertise: ["Full-stack development", "Frontend engineering", "Backend engineering", "Application development"],
+    description:
+      "Focused on modern web applications, dependable backend systems, and efficient software solutions.",
+    expertise: [
+      "Full-stack development",
+      "Frontend engineering",
+      "Backend engineering",
+      "Application development",
+    ],
+    phone: "+91 63836 67872",
+    phoneHref: "tel:+916383667872",
   },
   {
     initials: "AR",
     name: "Aravind Rajan K",
     role: "Co-Founder, Full-Stack Developer & AI Engineer",
-    description: "Focused on scalable software, AI-powered automation, and intelligent digital solutions.",
-    expertise: ["Full-stack engineering", "AI automation", "Agentic systems", "Backend architecture", "Product development"],
+    description:
+      "Focused on scalable software, AI-powered automation, and intelligent digital solutions.",
+    expertise: [
+      "Full-stack engineering",
+      "AI automation",
+      "Agentic systems",
+      "Backend architecture",
+      "Product development",
+    ],
+    phone: "+91 79040 40739",
+    phoneHref: "tel:+917904040739",
   },
 ];

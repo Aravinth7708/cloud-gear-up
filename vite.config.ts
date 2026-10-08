@@ -12,4 +12,15 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  nitro: {
+    compatibilityDate: "2026-10-08",
+    cloudflare: {
+      wrangler: {
+        account_id: "c4938e5e778ef26dacad7b4306c76bdc",
+        workers_dev: true,
+        routes: [{ pattern: "artechzo.tech", custom_domain: true }],
+        send_email: [{ name: "EMAIL", allowed_sender_addresses: ["website@artechzo.tech"] }],
+      },
+    },
+  },
 });
