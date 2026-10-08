@@ -6,6 +6,7 @@ import { ArchitectureFlow, ProductVisual } from "@/components/site/visuals";
 import { products } from "@/data/site";
 
 export const Route = createFileRoute("/products/$slug")({
+  staticData: { sitemap: true },
   loader: ({ params }) => { const product=products.find(item=>item.slug===params.slug); if(!product) throw notFound(); return product; },
   head: ({loaderData}) => { const title=loaderData?.name ?? "Product"; const description=loaderData?.description ?? "ARTECHZO technology product."; return {meta:[{title:`${title} — ARTECHZO`},{name:"description",content:description},{property:"og:title",content:`${title} — ARTECHZO`},{property:"og:description",content:description},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}; },
   component: ProductDetailPage,

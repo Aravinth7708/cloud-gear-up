@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/site/section-heading";
 import { principles, processSteps, products, services, technologyGroups } from "@/data/site";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "ARTECHZO — Software Engineering, AI Automation & Cloud Solutions" },
     { name: "description", content: "ARTECHZO engineers scalable software, intelligent automation, and reliable cloud deployments for ambitious organizations." },

@@ -7,6 +7,7 @@ import { ServiceDiagram } from "@/components/site/visuals";
 import { cloudOwnershipNote, processSteps, services } from "@/data/site";
 
 export const Route = createFileRoute("/services")({
+  staticData: { sitemap: true },
   head: () => ({ meta: [
     { title: "Software, AI & Cloud Services — ARTECHZO" },
     { name: "description", content: "Explore ARTECHZO software engineering, AI automation, and cloud deployment services." },

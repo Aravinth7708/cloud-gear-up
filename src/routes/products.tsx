@@ -5,7 +5,7 @@ import { CtaBand } from "@/components/site/cta-band";
 import { ProductVisual } from "@/components/site/visuals";
 import { products } from "@/data/site";
 
-export const Route = createFileRoute("/products")({head:()=>({meta:[
+export const Route = createFileRoute("/products")({staticData:{sitemap:true},head:()=>({meta:[
   {title:"Technology Products — ARTECHZO"},{name:"description",content:"Explore ARTECHZO products for conferences, garment operations, and responsible AI-assisted web data extraction."},{property:"og:title",content:"Products Built for Real-World Problems — ARTECHZO"},{property:"og:description",content:"Purpose-built digital products engineered around practical workflows."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"},
 ]}),component:ProductsPage});
 
