@@ -10,3 +10,6 @@
 - [x] Apply the requested Google Font (Montserrat provisionally; Montero unavailable)
 - [x] Add accessible, stable typewriter headline animation
 - [x] Expand home-page content and verify separate page navigation
+
+## Navigation loading
+- [x] Add a one-second loader on the first session visit to Services, Products, About, and Contact
