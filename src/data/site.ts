@@ -29,6 +29,29 @@ export const navItems = [
   { label: "Contact", to: "/contact" },
 ] as const;
 
+export const homeHeadlinePhrases = [
+  "digital experiences.",
+  "intelligent workflows.",
+  "technology that moves business forward.",
+] as const;
+
+export const deliveryFocus = [
+  { number: "01", title: "A clearer product foundation", text: "We translate your requirements into user journeys, application architecture, and connected data flows. The starting point is your business problem—not a predetermined technology stack.", items: ["Requirements and scope", "Application and data architecture", "Integration planning"] },
+  { number: "02", title: "Software that fits your workflow", text: "From customer-facing applications to internal tools and AI-assisted processes, we connect the interfaces, systems, and information your team depends on.", items: ["Full-stack implementation", "API and system integrations", "Workflow automation"] },
+  { number: "03", title: "A considered path to deployment", text: "Testing, deployment configuration, and technical monitoring are part of the delivery conversation. You own the cloud accounts and hardware; we handle the engineering and configuration.", items: ["Functional and integration testing", "Client-owned infrastructure", "Monitoring and ongoing improvement"] },
+] as const;
+
+export const homeFaqs = [
+  { question: "Can you help with an existing application?", answer: "Yes. Our software engineering capabilities include application maintenance, integrations, and optimization. We begin by understanding your existing system, its constraints, and the improvements you need." },
+  { question: "Where does AI automation fit into a project?", answer: "We focus on repeatable information and workflow tasks, such as document processing, authorized web data extraction, and connecting business applications. The workflow and access requirements determine where an AI-assisted approach is appropriate." },
+  { question: "Do you supply servers or cloud accounts?", answer: cloudOwnershipAnswer() },
+  { question: "What should we share to start a conversation?", answer: "Tell us about the problem, who will use the solution, your current tools, and any timing or budget constraints. If you already have requirements or an existing application, include that context in your project description." },
+] as const;
+
+function cloudOwnershipAnswer() {
+  return "No. Clients purchase and own their cloud subscriptions, provider accounts, servers, and physical hardware. ARTECHZO handles architecture, configuration, deployment, automation, and technical management. Private or on-premises work starts once suitable hardware and access are supplied.";
+}
+
 export type Service = {
   number: string;
   slug: string;

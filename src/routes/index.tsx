@@ -2,9 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, MoveUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/site/cta-band";
-import { HeroSystemVisual, ProductVisual, ServiceDiagram } from "@/components/site/visuals";
+import { HeroSystemVisual, ProductVisual } from "@/components/site/visuals";
 import { SectionHeading } from "@/components/site/section-heading";
-import { principles, processSteps, products, services, technologyGroups } from "@/data/site";
+import { TypewriterText } from "@/components/site/typewriter-text";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { deliveryFocus, founders, homeFaqs, homeHeadlinePhrases, principles, processSteps, products, services, technologyGroups } from "@/data/site";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -26,7 +28,8 @@ function Index() {
         <div className="site-container grid items-center gap-14 lg:grid-cols-[1.03fr_.97fr]">
           <div>
             <p className="eyebrow animate-in fade-in slide-in-from-bottom-2 duration-700">SOFTWARE · INTELLIGENCE · INFRASTRUCTURE</p>
-            <h1 className="mt-6 max-w-4xl text-balance text-5xl font-semibold leading-[1.05] sm:text-6xl lg:text-7xl">We Engineer Digital Experiences That <span className="text-primary">Move Businesses Forward.</span></h1>
+            <h1 className="mt-6 text-5xl font-semibold leading-tight sm:text-6xl lg:text-7xl">ARTECHZO</h1>
+            <p className="mt-5 max-w-2xl text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">We engineer <TypewriterText phrases={homeHeadlinePhrases} /></p>
             <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 text-muted-foreground">ARTECHZO transforms ambitious ideas into scalable software, intelligent AI-powered workflows, and secure cloud solutions built for the future.</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg"><Link to="/services">Explore Our Services <ArrowRight /></Link></Button>
@@ -47,6 +50,15 @@ function Index() {
         </div>
       </section>
 
+      <section className="section-space border-b border-border">
+        <div className="site-container">
+          <SectionHeading eyebrow="IDEAS INTO WORKING SYSTEMS" title="The details matter. From the first requirement to the final release." description="A useful digital product brings people, processes, and technology together. We look at the complete system—not just the screen in front of it." />
+          <div className="mt-12 grid gap-10 lg:grid-cols-3">
+            {deliveryFocus.map((focus) => <article key={focus.number} className="border-t border-border pt-6"><span className="font-mono text-sm text-primary">{focus.number}</span><h3 className="mt-5 text-2xl font-semibold leading-snug">{focus.title}</h3><p className="mt-4 leading-7 text-muted-foreground">{focus.text}</p><ul className="mt-6 space-y-3">{focus.items.map((item) => <li key={item} className="flex items-start gap-3 text-sm font-medium"><Check className="h-4 w-4 shrink-0 text-primary" />{item}</li>)}</ul></article>)}
+          </div>
+        </div>
+      </section>
+
       <section className="section-space border-y border-border bg-muted/35">
         <div className="site-container">
           <SectionHeading eyebrow="OUR PRODUCTS" title="Products Built to Solve Real-World Problems." description="We don’t just build software for clients. We also engineer our own solutions to address practical challenges through technology." />
@@ -59,6 +71,18 @@ function Index() {
       <section className="section-space bg-brand-ink text-brand-ink-foreground"><div className="site-container"><SectionHeading eyebrow="HOW WE WORK" title="From First Conversation to Production." className="[&_h2]:text-brand-ink-foreground [&_p:last-child]:text-brand-ink-muted"/><div className="mt-14 grid gap-8 md:grid-cols-5">{processSteps.map(([n,title,text])=><div key={n} className="relative border-t border-brand-ink-border pt-5"><span className="font-mono text-xs text-primary-light">{n}</span><h3 className="mt-4 font-semibold">{title}</h3><p className="mt-3 text-sm leading-6 text-brand-ink-muted">{text}</p></div>)}</div></div></section>
 
       <section className="section-space"><div className="site-container"><SectionHeading eyebrow="TECHNOLOGY EXPERTISE" title="Modern Tools. Practical Engineering." description="Technical capability areas selected to fit each product and operational requirement."/><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">{technologyGroups.map(group=><div key={group.label} className="border border-border p-5"><group.icon className="h-5 w-5 text-primary"/><h3 className="mt-5 text-sm font-semibold">{group.label}</h3><div className="mt-4 flex flex-wrap gap-2">{group.items.map(item=><span key={item} className="bg-muted px-2 py-1 text-[11px] text-muted-foreground">{item}</span>)}</div></div>)}</div></div></section>
+      <section className="section-space border-y border-border bg-surface-technical">
+        <div className="site-container grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div><SectionHeading eyebrow="THE PEOPLE BEHIND ARTECHZO" title="An engineering-led partnership." description="Ram Gibi and Aravind Rajan K bring full-stack development and AI engineering perspectives to the same goal: useful, dependable technology." /><Button asChild variant="outline" className="mt-8"><Link to="/about">Our story <MoveUpRight /></Link></Button></div>
+          <div className="divide-y divide-border border-y border-border">{founders.map((founder) => <article key={founder.initials} className="py-7"><div className="flex items-center gap-4"><span className="flex h-12 w-12 shrink-0 items-center justify-center bg-accent text-sm font-semibold text-primary">{founder.initials}</span><div><h3 className="text-lg font-semibold">{founder.name}</h3><p className="mt-1 text-sm leading-6 text-muted-foreground">{founder.role}</p></div></div><p className="mt-4 leading-7 text-muted-foreground">{founder.description}</p></article>)}</div>
+        </div>
+      </section>
+      <section className="section-space">
+        <div className="site-container grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
+          <SectionHeading eyebrow="BEFORE WE BEGIN" title="A few useful answers." description="Software, automation, infrastructure—and where your project can start." />
+          <Accordion type="single" collapsible className="border-t border-border">{homeFaqs.map((faq, index) => <AccordionItem key={faq.question} value={`question-${index}`}><AccordionTrigger className="py-6 text-base font-semibold leading-7">{faq.question}</AccordionTrigger><AccordionContent className="max-w-2xl pb-6 text-base leading-8 text-muted-foreground">{faq.answer}</AccordionContent></AccordionItem>)}</Accordion>
+        </div>
+      </section>
       <CtaBand />
     </main>
   );

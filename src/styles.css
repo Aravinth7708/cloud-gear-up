@@ -19,7 +19,7 @@
  */
 
 @theme inline {
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -193,5 +193,8 @@
 
 .tech-line { fill: none; stroke: color-mix(in oklab, var(--primary) 45%, transparent); stroke-width: 1.5; stroke-dasharray: 7 8; animation: flow 7s linear infinite; }
 .tech-line-delay { animation-delay: -3.5s; }
+.typewriter-cursor { animation: cursor-blink 1s step-end infinite; }
+@keyframes cursor-blink { 50% { opacity: 0; } }
 @keyframes flow { to { stroke-dashoffset: -120; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
+@media (prefers-reduced-motion: reduce) { .typewriter-cursor { display: none; } }
