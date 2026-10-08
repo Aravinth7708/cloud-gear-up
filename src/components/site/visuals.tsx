@@ -46,7 +46,7 @@ export function ServiceDiagram({ type }: { type: string }) {
       <div className="absolute left-8 right-8 top-1/2 h-px bg-primary/20" />
       <div className="absolute bottom-8 left-6 right-6 grid grid-cols-3 gap-2">
         {config.nodes.map((node, index) => {
-          const SideIcon = config.side[index % config.side.length];
+          const SideIcon = config.side[index % config.side.length] ?? config.side[0]!;
           return <div key={node} className="flex flex-col items-center border border-border bg-background p-3 text-center shadow-sm"><SideIcon className="h-4 w-4 text-primary" /><span className="mt-2 text-[10px] font-bold uppercase tracking-[0.1em]">{node}</span></div>;
         })}
       </div>

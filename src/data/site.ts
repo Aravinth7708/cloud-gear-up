@@ -1,7 +1,7 @@
 import {
   Bot,
   Boxes,
-  Browser,
+  AppWindow,
   CloudCog,
   CodeXml,
   Database,
@@ -122,7 +122,7 @@ export const products: Product[] = [
       "A coherent digital environment designed to organize event information and support clearly structured conference management experiences.",
     functionalAreas: ["Event information", "Conference overview", "Structured management panels", "Content organization"],
     useCases: ["Conference information hubs", "Event operations teams", "Organized attendee information"],
-    icon: Browser,
+    icon: AppWindow,
     flow: ["Event data", "Content layer", "Conference interface", "Managed information"],
   },
   {
