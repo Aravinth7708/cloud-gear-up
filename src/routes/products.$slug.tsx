@@ -7,7 +7,20 @@ import { products } from "@/data/site";
 
 export const Route = createFileRoute("/products/$slug")({
   staticData: { sitemap: true },
-  head: () => ({meta:[{title:"Technology Product — ARTECHZO"},{name:"description",content:"Explore an ARTECHZO technology product, its intended solution, functional areas, and use cases."},{property:"og:title",content:"Technology Product — ARTECHZO"},{property:"og:description",content:"Explore an ARTECHZO technology product and its intended solution."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}),
+  head: ({ params }) => {
+    const product = products.find((item) => item.slug === params.slug);
+    const title = product ? `${product.name} — ARTECHZO` : "Product Unavailable — ARTECHZO";
+    const description = product?.description ?? "The requested ARTECHZO product page is unavailable.";
+    return { meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      ...(!product ? [{ name: "robots", content: "noindex" }] : []),
+    ] };
+  },
   component: ProductDetailPage,
   notFoundComponent: ProductNotFound,
 });
