@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep company, service, product, and founder content in a central data module so every public page stays consistent.
+- Build shared public-site navigation and footer in the root route so all content pages use one accessible shell.

@@ -1,0 +1,12 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CtaBand } from "@/components/site/cta-band";
+import { ProductVisual } from "@/components/site/visuals";
+import { products } from "@/data/site";
+
+export const Route = createFileRoute("/products/")({staticData:{sitemap:true},head:()=>({meta:[
+  {title:"Technology Products — ARTECHZO"},{name:"description",content:"Explore ARTECHZO products for conferences, garment operations, and responsible AI-assisted web data extraction."},{property:"og:title",content:"Products Built for Real-World Problems — ARTECHZO"},{property:"og:description",content:"Purpose-built digital products engineered around practical workflows."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"},
+]}),component:ProductsPage});
+
+function ProductsPage(){return <main><section className="border-b border-border bg-surface-technical py-20 lg:py-28"><div className="site-container"><p className="eyebrow">OUR PRODUCTS</p><h1 className="mt-6 max-w-5xl text-balance text-5xl font-semibold leading-tight sm:text-6xl">Ideas engineered into focused digital products.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">We develop practical software around clear operating problems—without inflated claims or unnecessary complexity.</p></div></section><section className="section-space"><div className="site-container space-y-20">{products.map((product,index)=><article key={product.slug} className="grid items-center gap-10 border-b border-border pb-20 last:border-0 last:pb-0 lg:grid-cols-[.85fr_1.15fr] lg:gap-20"><div className={index%2 ? "lg:order-2" : ""}><p className="eyebrow">{product.category}</p><h2 className="mt-5 text-3xl font-semibold sm:text-4xl">{product.name}</h2><p className="mt-5 text-lg leading-8 text-muted-foreground">{product.description}</p><div className="mt-7 flex flex-wrap gap-2">{product.functionalAreas.map(area=><span key={area} className="border border-border bg-muted/50 px-3 py-1.5 text-xs font-medium">{area}</span>)}</div><Button asChild className="mt-8"><Link to="/products/$slug" params={{slug:product.slug}}>View Product <ArrowRight /></Link></Button></div><div className={index%2 ? "lg:order-1" : ""}><ProductVisual product={product}/></div></article>)}</div></section><CtaBand/></main>}
